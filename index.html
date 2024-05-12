@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="start-btn">Start</button>
+    <div class="vid">
+        <video id="video" autoplay></video>
+    </div>
+    <script>
+        let start = document.getElementById("start-btn");
+        let video = document.getElementById("video");
+        start.onclick = async () => {
+            const screen = await navigator.mediaDevices.getDisplayMedia({
+                video: true, audio: true
+            })
+            video.srcObject = screen;
+        }
+    </script>
+</body>
+
+</html>
